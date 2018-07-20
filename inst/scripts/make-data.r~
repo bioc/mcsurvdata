@@ -1,0 +1,122 @@
+###############################################################################
+######## From raw data to processed data available in the package #############
+###############################################################################
+
+################### Breast cancer cohort ###############
+### Data from GEO repository https://www.ncbi.nlm.nih.gov/geo/ under accession
+# numbers GSE1456,  GSE2034, GSE2990, GSE3494 and GSE7390 were considered.
+
+### CEL files were downloaded, and raw data were obtained using the R
+# function affy::ReadAffy. Normalized expression sets were found from raw data
+# using R functions affyPLM::rmaPLM and affyPLM::PLMset2exprSet.
+
+### Annotation from HG-U133 affymetrix was used, relase date 2015_04_16
+
+### The expression was summarised at gene level by only keeping the
+# measurements of the most variable (mad function) probe set for each gene.
+
+### ER classification (ER+ or ER-) was imputated using hierchical clustering
+# pdfCluster::pdfCluster function from the expression of the ESR1 gene
+
+### HER2 classification (HER2+ or HER2-) was imputated using hierchical
+# clustering pdfCluster::pdfCluster function from the expression of the
+# ERBB2 gene
+
+### PR classification (PR+ or PR-) was imputated using hierchical clustering
+# pdfCluster::pdfCluster function from the expression of the PGR gene
+
+### Eklund metrics (https://www.ncbi.nlm.nih.gov/pubmed/18248669)
+# and batches due to scan time (see function Biobase::protocolData) were
+# considered as adjusting covariates in a mixed effect model to remove
+# expression changes due to possible technical artefacts. ER, HER2 and PR
+# factors were also included in the model to protect biological effects as
+# were not used to adjust the original data.
+
+### The metabric for breast cancer data
+# (https://www.nature.com/articles/nature10983) was also downloaded using the
+# cdrg R package. No pre-processing was performed on the metabric data.
+
+### Only genes measured in all datasets from GEO and metabric were considered.
+
+### Survival information (relapse event and months to relapse) was annonated
+# as part of the KM plotter version 2010
+# (https://www.ncbi.nlm.nih.gov/pubmed/20020197)
+
+### Only ER+ samples were kept for the final processed data.
+
+### Full code used for the processing of the CEL files to the saved data
+# provided in this data package can be made available upon request.
+
+################### Colon cancer cohort ###############
+### Data from GEO repository https://www.ncbi.nlm.nih.gov/geo/ under accession
+# numbers GSE14333,  GSE39582, GSE33113 and GSE37892 were considered.
+
+### CEL files were downloaded, and raw data were obtained using the R
+# function affy::ReadAffy. Normalized expression sets were found from raw data
+# using R functions affyPLM::rmaPLM and affyPLM::PLMset2exprSet.
+
+### Annotation from HG-U133 affymetrix was used, relase date 2015_04_16
+
+### The expression was summarised at gene level by only keeping the
+# measurements of the most variable (mad function) probe set for each gene.
+
+### MSI classification (MSI or MSS) was imputated using hierchical clustering
+# pdfCluster::pdfCluster function from the expression of a gene signature
+# proposed by Jorissen et al, ClinCanRes 2008.
+
+### Eklund metrics (https://www.ncbi.nlm.nih.gov/pubmed/18248669)
+# and batches due to scan time (see function Biobase::protocolData) were
+# considered as adjusting covariates in a mixed effect model to remove
+# expression changes due to possible technical artefacts. Other variables
+# such as gender, age, stage (dukesstage), site, and msi factors were also
+# included in the model to protect biological effects as were not used to
+# adjust the original data.
+
+### Survival information (relapse event and years to relapse) was obtained
+# from the GEO objects
+
+### Only MSS samples were kept for the final processed data.
+
+### Full code used for the processing of the CEL files to the saved data
+# provided in this data package can be made available upon request.
+
+###############################################################################
+###############################################################################
+
+
+###############################################################################
+
+### Exploration of the available data
+
+## Information of 2 merged datasets
+(nda.brca)
+(nda.crc)
+
+## pData method gives clinical and experimental information
+head(pData(nda.brca))
+head(pData(nda.crc))
+
+## scan batch and Eklund metrics as function of scan.time
+plot(nda.brca$scan.time[nda.brca$dataset=="GSE1456"],
+     col=nda.brca$scan.batch[nda.brca$dataset=="GSE1456"])
+plot(nda.brca$scan.time[nda.brca$dataset=="GSE1456"],
+     col=nda.brca$pm.iqr[nda.brca$dataset=="GSE1456"])
+plot(nda.brca$scan.time[nda.brca$dataset=="GSE1456"],
+     col=nda.brca$rma.iqr[nda.brca$dataset=="GSE1456"])
+plot(nda.brca$rna.deg[nda.brca$dataset=="GSE1456"],
+     col=nda.brca$scan.batch[nda.brca$dataset=="GSE1456"])
+
+## exprs method gives the (adjusted by scan batches and Eklund metrics)
+# expression data measurements
+plot(density(exprs(nda.brca[,nda.brca$dataset=="GSE1456"])[1,]))
+plot(density(exprs(nda.crc[,nda.crc$dataset=="GSE14333"])[1,]))
+
+
+
+
+
+
+
+
+
+
