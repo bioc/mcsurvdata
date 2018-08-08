@@ -1,6 +1,6 @@
 Package: mcsurvdata
 Type: Package
-Version: 1.0.1
+Version: 0.99.0
 Date: 2018-07-20
 Title: Meta cohort survival data
 Author: Adria Caballe <adria.caballe@irbbarcelona.org>
@@ -8,9 +8,15 @@ Maintainer: Adria Caballe <adria.caballe@irbbarcelona.org>
 Description: This package stores two merged expressionSet objects that contain
   the gene expression profile and clinical information of -a- six breast
   cancer cohorts and -b- four colorectal cancer cohorts. Breast cancer
-  data are employed in the vignette of the hrunbiased package for survival 
+  data are employed in the vignette of the hrunbiased package for survival
   analysis of gene signatures.
+VignetteBuilder: knitr
+License: GPL (>=2)
 NeedsCompilation: no
-biocViews: Microarray, Preprocessing, Normalization, GeneExpression, Survival
-Depends: R (>= 3.4), Biobase
-License: GPL-3
+biocViews: Microarray, Preprocessing, Normalization, GeneExpression, Survival,
+ ThirdPartyClient, DataImport, GUI
+URL: https://github.com/adricaba/mcsurvdata
+Depends: R (>= 3.5), ExperimentHub
+Suggests: knitr
+Imports: AnnotationHub, Biobase
+

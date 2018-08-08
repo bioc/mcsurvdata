@@ -1,1 +1,3 @@
-exportPattern(".")
+import(ExperimentHub)
+importFrom(AnnotationHub, query)
+importFrom(Biobase,ExpressionSet)
