@@ -29,7 +29,7 @@ meta <- data.frame(
                        "the gene expression matrix of GSE14333, GSE33113 and ",
                        "GSE37892 to a reference dataset (GSE39582). Only ",
                        "MSS samples are included.")),
-  BiocVersion = c("3.6","3.6"),
+  BiocVersion = c("3.8","3.8"),
   Genome = c("hg19","hg19"),
   SourceType = c("CEL files","CEL files"),
   SourceUrl = c(paste0("https://www.ncbi.nlm.nih.gov/geo/, ",
@@ -48,5 +48,4 @@ meta <- data.frame(
   RDataPath = c("mcsurvdata/nda.brca.rda","mcsurvdata/nda.crc.rda")
 )
 
-#write.csv(meta, file="inst/extdata/metadata.csv", row.names=FALSE)
-#makeExperimentHubMetadata("mcsurvdata/", fileName="metadata.csv")
+###write.csv(meta, file="inst/extdata/metadata.csv", row.names=FALSE)
