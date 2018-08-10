@@ -1,6 +1,6 @@
 Package: mcsurvdata
 Type: Package
-Version: 0.99.0
+Version: 1.0.1
 Date: 2018-07-20
 Title: Meta cohort survival data
 Author: Adria Caballe <adria.caballe@irbbarcelona.org>
