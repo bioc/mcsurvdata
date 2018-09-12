@@ -1,6 +1,6 @@
 Package: mcsurvdata
 Type: Package
-Version: 0.99.3
+Version: 0.99.4
 Date: 2018-07-20
 Title: Meta cohort survival data
 Authors@R: c(person("Adria", "Caballe Mestres", role=c("aut", "cre"),
@@ -15,8 +15,7 @@ Description: This package stores two merged expressionSet objects that contain
 VignetteBuilder: knitr
 License: GPL (>=2)
 NeedsCompilation: no
-biocViews: Microarray, Preprocessing, Normalization, GeneExpression, Survival,
- ThirdPartyClient, DataImport, GUI
+biocViews: ExperimentData, Homo_sapiens_Data, GEO, MicroarrayData
 URL: https://github.com/adricaba/mcsurvdata
 Depends: R (>= 3.5), ExperimentHub
 Suggests: knitr
