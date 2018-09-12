@@ -1,10 +1,12 @@
 Package: mcsurvdata
 Type: Package
-Version: 0.99.2
+Version: 0.99.3
 Date: 2018-07-20
 Title: Meta cohort survival data
-Author: Adria Caballe <adria.caballe@irbbarcelona.org>
-Maintainer: Adria Caballe <adria.caballe@irbbarcelona.org>
+Authors@R: c(person("Adria", "Caballe Mestres", role=c("aut", "cre"),
+        email="adria.caballe@irbbarcelona.org"),
+                    person("Antoni", "Berenguer Llergo", role="aut"),
+                        person("Camille", "Stephan-Otto Attolini", role="aut"))
 Description: This package stores two merged expressionSet objects that contain
   the gene expression profile and clinical information of -a- six breast
   cancer cohorts and -b- four colorectal cancer cohorts. Breast cancer
@@ -19,4 +21,3 @@ URL: https://github.com/adricaba/mcsurvdata
 Depends: R (>= 3.5), ExperimentHub
 Suggests: knitr
 Imports: AnnotationHub, Biobase
-
