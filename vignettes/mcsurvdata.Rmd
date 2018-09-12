@@ -26,31 +26,31 @@ Adria Caballe Mestres
 ## Colorectal adenocarcinoma datasets
 Four publicly available Affymetrix microarray datasets were downloaded
 from the NCBI GEO repository [1]. These datasets included gene
-expression  and clinical information from a total of 1.072 colorectal
+expression  and clinical information from a total of 1,072 colorectal
 cancer (CRC) patients. GSE14333 [2] is a pool of 290 patients with CRC
 treated at 2 different hospitals: the Peter MacCallum Cancer Center
 (Australia) and the H. Lee Moffitt Cancer Center (United States);
 GSE33113 [3] contains samples from 90 AJCC stage II patients collected
 at the Academic Medical Center in Amsterdam (the Netherlands);
 GSE39582 [4] includes data from 566 CRC patients that form part of the
-Cartes d'Identite des Tumeurs (CIT) program, from the french ligue
+Cartes d'Identite des Tumeurs (CIT) program, from the French ligue
 nationale contre le cancer; finally, GSE37892 [5] includes expression
 and clinical information from 130 stage ii and iii CRC patients
-collected at five different hospitals from France (marseille la
-timone, nice lacassagne, marseille institut paolicalmettes, paris
-lariboisiare, nancy brabois and paris saintantoine).
+collected at five different hospitals from France (Marseille la
+timone, Nice lacassagne, Marseille institut paolicalmettes, Paris
+lariboisiare, Nancy brabois and Paris saintantoine).
 
 Processing of microarray samples was carried out separately for each
 dataset using packages affy [6] and affyplm [7] from Bioconductor
 [8]. Raw cel files were normalized using RMA background correction and
 summarization [9]. Standard quality controls were performed in order
-to identify abnormal samples. Technical information concerning samples
+to identify abnormal samples. Technical information concerning sample
 processing and hybridization was retrieved from the original CEL
 files: scanning dates were collected in order to define scan batches
 in each dataset separately; technical metrics PM MED, PM IQR, RMA IQR
 and RNA DEG described in [10] were computed and recorded as additional
 features for each sample. Probeset annotation was performed using
-the information available in Affymetrix. No samples were excluded due
+the information available in Affymetrix. No sample was excluded due
 to quality issues.
 
 Microarray datasets were corrected separately by metrics PM IQR, RMA
@@ -63,7 +63,7 @@ technical effects captured by sample's center of origin and batch
 (scanning day). This correction was carried out using a mixed-effect
 model in which gender, age at diagnosis, stage, tumour location and
 Microsatellite Instability (MSI) status were also included as
-covariates, when available. Scanning day was modelled as a random
+covariates, when available. Scanning day was modeled as a random
 effect in these models, while center was included as a fixed
 (GSE14333) or a random effect (GSE39582 and GSE37892) depending on
 the number of centers involved and on the sample size in each of
@@ -120,7 +120,7 @@ possible technical artefacts.
 
 The metabric for breast cancer data [19] was also downloaded but no
 extra data processing was undertaken. Each of the expression matrices
-from GEO were standardised gene-wise using the metabric dataset as a
+from GEO were standardized gene-wise using the metabric dataset as a
 reference following the same procedure detailed for the CRC datasets.
 
 ER classification (ER+ or ER-) was imputated using hierarchical
@@ -156,12 +156,17 @@ nda.crc <- dat[["EH1498"]]
 
 Survival information is available in attributes `tev` (follow up time)
 `evn` (event information 0 no event 1 event) for both brca and crc
-data. Eklund metrics are also computed in atttibutes `pm.med`,
-`pm.iqr`,   `rma.iqr` and    `rna.deg`. Unique charactaristics of the
+data. Eklund metrics are also computed in attributes `pm.med`,
+`pm.iqr`,   `rma.iqr` and    `rna.deg`. Unique characteristics of the
 tumors such as `stage`, `msi` information and `cms` are annotated in the
 colon cancer cohorts, whereas `ER.status`, `PGR.status` and
-`HER2.status` are annoted in the breast cancer cohorts.
+`HER2.status` are annotated in the breast cancer cohorts.
 
+# SessionInfo
+
+```{r}
+sessionInfo()
+```
 
 # References
 
@@ -243,3 +248,4 @@ Research 13, 3207-3214 (2007).
 assess the effect of 22,277 genes on breast cancer prognosis using
 microarray data of 1,809 patients. Breast Cancer Research and
 Treatment 123, 725-731 (2010).
+
