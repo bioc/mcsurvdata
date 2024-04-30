@@ -1,6 +1,6 @@
 Package: mcsurvdata
 Type: Package
-Version: 1.22.0
+Version: 1.23.0
 Date: 2023-07-20
 Title: Meta cohort survival data
 Authors@R: c(person("Adria", "Caballe Mestres", role=c("aut", "cre"),
